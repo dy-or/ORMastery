@@ -538,6 +538,133 @@
 
   .success-msg p { color: rgba(245,240,232,0.5); font-size: 0.9rem; }
 
+  /* ── AI-PROOF SECTION ── */
+  .aiproof-section {
+    background: linear-gradient(160deg, rgba(10,10,15,0.98) 0%, rgba(20,14,8,1) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+
+  .aiproof-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(200,150,62,0.07), transparent);
+    pointer-events: none;
+  }
+
+  .aiproof-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+
+  .aiproof-left {}
+
+  .shield-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, rgba(200,150,62,0.2), rgba(184,76,39,0.15));
+    border: 1px solid var(--border); border-radius: 6px;
+    font-size: 2rem; margin-bottom: 1.8rem;
+  }
+
+  .aiproof-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.9rem);
+    font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+    margin-bottom: 1.2rem;
+  }
+
+  .aiproof-left h2 .highlight {
+    color: var(--gold); position: relative;
+  }
+
+  .aiproof-left p {
+    color: rgba(245,240,232,0.6); font-size: 1.05rem; line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .salary-bar-wrap { margin-top: 2rem; }
+
+  .salary-row {
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 1.1rem;
+  }
+
+  .salary-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.08em;
+    color: rgba(245,240,232,0.5); width: 140px; flex-shrink: 0;
+  }
+
+  .salary-bar-bg {
+    flex: 1; height: 8px; background: rgba(245,240,232,0.07);
+    border-radius: 100px; overflow: hidden;
+  }
+
+  .salary-bar-fill {
+    height: 100%; border-radius: 100px;
+    background: linear-gradient(90deg, var(--rust), var(--gold));
+    animation: barGrow 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--delay, 0s);
+    transform-origin: left;
+  }
+
+  @keyframes barGrow {
+    from { width: 0 !important; }
+  }
+
+  .salary-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700; color: var(--gold);
+    width: 52px; text-align: right; flex-shrink: 0;
+  }
+
+  /* right side: reason cards */
+  .aiproof-right { display: flex; flex-direction: column; gap: 1rem; }
+
+  .reason-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 1.4rem 1.6rem;
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+
+  .reason-card:hover { border-color: var(--gold); transform: translateX(4px); }
+
+  .reason-icon {
+    font-size: 1.6rem; flex-shrink: 0; margin-top: 0.1rem;
+    width: 44px; height: 44px;
+    background: rgba(200,150,62,0.08); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .reason-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.35rem; }
+  .reason-card p { font-size: 0.85rem; color: rgba(245,240,232,0.5); line-height: 1.55; }
+
+  .vs-banner {
+    margin-top: 2.5rem; padding: 1.5rem 2rem;
+    background: rgba(200,150,62,0.06);
+    border: 1px solid var(--border); border-radius: 4px;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+
+  .vs-banner .big-stat {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; font-weight: 900; color: var(--gold); line-height: 1;
+    white-space: nowrap;
+  }
+
+  .vs-banner p {
+    font-size: 0.88rem; color: rgba(245,240,232,0.55); line-height: 1.55; margin: 0;
+  }
+
+  .vs-banner p strong { color: var(--cream); font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .aiproof-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .salary-label { width: 110px; font-size: 0.65rem; }
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
@@ -558,6 +685,7 @@
 <nav>
   <div class="nav-logo">OR<span>Mastery</span></div>
   <ul class="nav-links">
+    <li><a href="#ai-proof">Why OR</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#curriculum">Curriculum</a></li>
     <li><a href="#tools">Tools</a></li>
@@ -585,11 +713,149 @@
   </div>
 </section>
 
+<!-- AI-PROOF CAREER SECTION -->
+<section class="aiproof-section" id="ai-proof">
+  <div class="aiproof-inner">
+
+    <!-- LEFT: Salary bars + intro -->
+    <div class="aiproof-left">
+      <div class="shield-icon">🛡️</div>
+      <h2>The one career AI <span class="highlight">can't replace</span> — it needs OR to work.</h2>
+      <p>While AI is eliminating thousands of white-collar jobs across the US, Operations Research professionals are in higher demand than ever. Why? Because AI <em>runs on</em> optimization algorithms — it doesn't replace the people who build, tune, and deploy them.</p>
+
+      <div class="salary-bar-wrap">
+        <div class="section-label" style="margin-bottom:0.4rem;">Average US Salaries at 5 Years Experience</div>
+        <p style="font-size:0.78rem; color:rgba(245,240,232,0.38); margin-bottom:1.2rem; font-family:'DM Mono',monospace; letter-spacing:0.04em;">Source: BLS Occupational Outlook · Glassdoor · LinkedIn Salary 2024</p>
+
+        <!-- OR Consultant — gold, featured -->
+        <div class="salary-row" style="background:rgba(200,150,62,0.07); border:1px solid rgba(200,150,62,0.3); border-radius:4px; padding:0.6rem 0.8rem; margin-bottom:1.4rem;">
+          <span class="salary-label" style="color:var(--gold); font-weight:500; font-size:0.75rem;">OR Consultant ⭐</span>
+          <div class="salary-bar-bg"><div class="salary-bar-fill" style="width:100%; --delay:0.1s"></div></div>
+          <span class="salary-val" style="font-size:1.15rem;">$142K</span>
+        </div>
+
+        <!-- Comparison roles — muted -->
+        <div style="margin-bottom:0.4rem; font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.1em; color:rgba(245,240,232,0.28); text-transform:uppercase;">Other roles at 5 yrs experience</div>
+
+        <div class="salary-row" style="opacity:0.55;">
+          <span class="salary-label">Business Analyst</span>
+          <div class="salary-bar-bg"><div class="salary-bar-fill" style="width:53%; --delay:0.2s; background:linear-gradient(90deg,#4a4a4a,#6b7280)"></div></div>
+          <span class="salary-val" style="color:rgba(245,240,232,0.45);">$75K</span>
+        </div>
+        <div class="salary-row" style="opacity:0.55;">
+          <span class="salary-label">Data Analyst</span>
+          <div class="salary-bar-bg"><div class="salary-bar-fill" style="width:59%; --delay:0.3s; background:linear-gradient(90deg,#4a4a4a,#6b7280)"></div></div>
+          <span class="salary-val" style="color:rgba(245,240,232,0.45);">$84K</span>
+        </div>
+        <div class="salary-row" style="opacity:0.55;">
+          <span class="salary-label">Project Manager</span>
+          <div class="salary-bar-bg"><div class="salary-bar-fill" style="width:63%; --delay:0.4s; background:linear-gradient(90deg,#4a4a4a,#6b7280)"></div></div>
+          <span class="salary-val" style="color:rgba(245,240,232,0.45);">$90K</span>
+        </div>
+        <div class="salary-row" style="opacity:0.55;">
+          <span class="salary-label">Supply Chain Mgr</span>
+          <div class="salary-bar-bg"><div class="salary-bar-fill" style="width:68%; --delay:0.5s; background:linear-gradient(90deg,#4a4a4a,#6b7280)"></div></div>
+          <span class="salary-val" style="color:rgba(245,240,232,0.45);">$97K</span>
+        </div>
+      </div>
+
+      <div class="vs-banner">
+        <div class="big-stat">28%</div>
+        <p><strong>Projected growth in OR roles through 2032</strong> according to the US Bureau of Labor Statistics — nearly 4× faster than the average occupation. No other quantitative field comes close.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Reason cards -->
+    <div class="aiproof-right">
+      <div class="section-label" style="margin-bottom:0.2rem;">Why OR Is AI-Resistant</div>
+
+      <div class="reason-card">
+        <div class="reason-icon">🧠</div>
+        <div>
+          <h4>AI is a tool, not the decision-maker</h4>
+          <p>Machine learning predicts. Operations Research decides. Companies still need humans who can frame constraints, define objectives, and validate solutions in real-world business contexts.</p>
+        </div>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-icon">⚖️</div>
+        <div>
+          <h4>Optimization is the engine inside AI</h4>
+          <p>Every LLM, every recommendation engine, every logistics AI runs on optimization algorithms. OR professionals build and maintain the very foundation AI stands on.</p>
+        </div>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-icon">🏭</div>
+        <div>
+          <h4>Real-world constraints can't be automated away</h4>
+          <p>Supply chain disruptions, regulatory limits, union rules, budget caps — these require expert judgment to model correctly. No AI can replace that context.</p>
+        </div>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-icon">📈</div>
+        <div>
+          <h4>Massive talent shortage in the US right now</h4>
+          <p>There are fewer than 100,000 OR professionals in the US but demand is exploding across defense, healthcare, logistics, and tech. Companies are paying premiums to hire.</p>
+        </div>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-icon">🔁</div>
+        <div>
+          <h4>Your experience becomes a superpower</h4>
+          <p>Unlike fresh graduates, you bring domain knowledge — supply chain, finance, healthcare — that makes you 10× more effective as an OR practitioner from day one.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- WHO IS THIS FOR -->
+
 <section class="for-section" id="about">
   <div class="section-label">Who This Is For</div>
   <h2 class="section-title">Built for professionals, not students.</h2>
   <p class="section-sub">You already have domain expertise. ORMastery gives you the quantitative edge that unlocks leadership and specialist roles at top firms.</p>
+
+  <!-- LIVE ZOOM TRAINING CALLOUT -->
+  <div style="
+    display:flex; align-items:flex-start; gap:1.4rem;
+    background:linear-gradient(135deg,rgba(200,150,62,0.1),rgba(184,76,39,0.06));
+    border:1px solid rgba(200,150,62,0.35); border-radius:6px;
+    padding:1.8rem 2rem; margin-bottom:3rem; position:relative; overflow:hidden;
+  ">
+    <div style="
+      font-size:2.2rem; flex-shrink:0;
+      width:56px; height:56px; border-radius:6px;
+      background:rgba(200,150,62,0.12);
+      display:flex; align-items:center; justify-content:center;
+    ">🎥</div>
+    <div>
+      <div style="
+        font-family:'DM Mono',monospace; font-size:0.68rem;
+        letter-spacing:0.15em; text-transform:uppercase;
+        color:var(--gold); margin-bottom:0.5rem;
+      ">Live · Interactive · Human-led</div>
+      <h3 style="
+        font-family:'Playfair Display',serif; font-size:1.25rem;
+        font-weight:700; margin-bottom:0.5rem; line-height:1.2;
+      ">All sessions are live on Zoom — no recorded videos, ever.</h3>
+      <p style="
+        font-size:0.9rem; color:rgba(245,240,232,0.6); line-height:1.65; margin:0;
+        max-width:680px;
+      ">Every class is conducted <strong style="color:var(--cream);">live by an experienced OR practitioner</strong> via Zoom — not a pre-recorded video you watch alone. You get to ask questions in real time, work through problems with peers, and get direct feedback from instructors who actually work in the field. Research consistently shows live instruction produces <strong style="color:var(--cream);">3–4× better retention</strong> than self-paced video courses. This is what separates ORMastery from every other online program.</p>
+    </div>
+    <div style="
+      position:absolute; right:-1rem; top:50%; transform:translateY(-50%);
+      font-family:'Playfair Display',serif; font-size:7rem; font-weight:900;
+      color:rgba(200,150,62,0.05); line-height:1; pointer-events:none;
+      white-space:nowrap;
+    ">LIVE</div>
+  </div>
+
   <div class="for-grid">
     <div class="for-card">
       <span class="for-icon">⚙️</span>
@@ -712,18 +978,9 @@
   <h2 class="section-title" style="margin: 0.8rem auto 1rem; text-align: center;">Industry-standard stack from day one.</h2>
   <p class="section-sub" style="text-align: center; margin: 0 auto 1rem;">You'll graduate fluent in the exact tools employers list in OR job postings.</p>
   <div class="tools-grid">
-    <span class="tool-badge">Python</span>
     <span class="tool-badge">Gurobi</span>
-    <span class="tool-badge">IBM CPLEX</span>
-    <span class="tool-badge">Google OR-Tools</span>
+    <span class="tool-badge">Python</span>
     <span class="tool-badge">PuLP</span>
-    <span class="tool-badge">SciPy.optimize</span>
-    <span class="tool-badge">SimPy</span>
-    <span class="tool-badge">AMPL</span>
-    <span class="tool-badge">Julia / JuMP</span>
-    <span class="tool-badge">Arena Simulation</span>
-    <span class="tool-badge">NetworkX</span>
-    <span class="tool-badge">Jupyter</span>
     <span class="tool-badge">Pandas</span>
     <span class="tool-badge">Excel Solver</span>
   </div>
@@ -769,18 +1026,15 @@
       <div class="pricing-price"><span>$</span>0</div>
       <div class="pricing-period">forever free</div>
       <ul class="pricing-features">
-        <li>Module 1 & 2 in full</li>
-        <li>Community forum access</li>
-        <li>Weekly live Q&amp;A sessions</li>
-        <li>OR career roadmap guide</li>
+        <li>1-on-1 interaction with an OR Expert — completely free of cost</li>
       </ul>
       <a href="#" class="btn-outline" style="display:block; text-align:center; font-size:0.9rem;" onclick="openModal(); return false;">Get Started Free</a>
     </div>
     <div class="pricing-card featured">
       <div class="featured-badge">Most Popular</div>
       <div class="pricing-name">Professional</div>
-      <div class="pricing-price"><span>$</span>297<span>/mo</span></div>
-      <div class="pricing-period">billed monthly · cancel anytime</div>
+      <div class="pricing-price"><span>$</span>280<span>/wk</span></div>
+      <div class="pricing-period">billed weekly · cancel anytime</div>
       <ul class="pricing-features">
         <li>All 8 modules unlocked</li>
         <li>8 industry project assignments</li>
