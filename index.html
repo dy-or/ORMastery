@@ -262,8 +262,19 @@
     letter-spacing: 0.05em;
   }
 
-  .module h4 { font-size: 1rem; font-weight: 500; margin-bottom: 0.3rem; }
+  .module h4 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; }
   .module p { font-size: 0.85rem; color: rgba(245,240,232,0.5); line-height: 1.5; }
+
+  .module-topics {
+    list-style: none; display: flex; flex-direction: column; gap: 0.3rem;
+  }
+  .module-topics li {
+    font-size: 0.82rem; color: rgba(245,240,232,0.5); line-height: 1.4;
+    display: flex; align-items: baseline; gap: 0.5rem;
+  }
+  .module-topics li::before {
+    content: '›'; color: var(--gold); font-size: 0.9rem; flex-shrink: 0;
+  }
 
   .curriculum-aside {
     position: sticky; top: 6rem;
@@ -689,7 +700,6 @@
     <li><a href="#about">About</a></li>
     <li><a href="#curriculum">Curriculum</a></li>
     <li><a href="#tools">Tools</a></li>
-    <li><a href="#testimonials">Stories</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#" class="nav-cta" onclick="openModal(); return false;">Enroll Free</a></li>
   </ul>
@@ -901,57 +911,73 @@
         <div class="module">
           <span class="module-num">01</span>
           <div>
-            <h4>Foundations of Operations Research</h4>
-            <p>History, scope, and problem formulation. Mathematical prerequisites refreshed efficiently.</p>
+            <h4>Operations Research Foundations</h4>
+            <ul class="module-topics">
+              <li>Introduction to OR</li>
+              <li>Decision-Making Frameworks</li>
+              <li>Business Problem Structuring</li>
+              <li>OR Consulting Lifecycle</li>
+            </ul>
           </div>
         </div>
         <div class="module">
           <span class="module-num">02</span>
           <div>
-            <h4>Linear Programming & the Simplex Method</h4>
-            <p>LP formulations, duality theory, sensitivity analysis. Python & Gurobi implementation.</p>
+            <h4>Optimization Modeling</h4>
+            <ul class="module-topics">
+              <li>Basics of Modeling</li>
+              <li>Linear Programming</li>
+              <li>Integer Programming</li>
+              <li>Network Models</li>
+              <li>Multi-Objective Optimization</li>
+            </ul>
           </div>
         </div>
         <div class="module">
           <span class="module-num">03</span>
           <div>
-            <h4>Integer & Mixed-Integer Programming</h4>
-            <p>Branch-and-bound, cutting planes, modeling tricks for combinatorial problems.</p>
+            <h4>Basic Data Analytics for OR</h4>
+            <ul class="module-topics">
+              <li>Data Collection & Preparation</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Business Metrics & KPIs</li>
+              <li>Forecasting Fundamentals</li>
+              <li>Version Control — GitHub</li>
+            </ul>
           </div>
         </div>
         <div class="module">
           <span class="module-num">04</span>
           <div>
-            <h4>Network Flows & Graph Optimization</h4>
-            <p>Shortest path, max-flow, min-cost flow. TSP and vehicle routing problems.</p>
+            <h4>Advanced Optimization Techniques</h4>
+            <ul class="module-topics">
+              <li>Nonlinear Optimization</li>
+              <li>Heuristics & Metaheuristics</li>
+              <li>Constraint Programming</li>
+            </ul>
           </div>
         </div>
         <div class="module">
           <span class="module-num">05</span>
           <div>
-            <h4>Stochastic Programming & Decision Under Uncertainty</h4>
-            <p>Two-stage models, scenario trees, chance constraints. Real finance and supply chain cases.</p>
+            <h4>Industry Applications — Hands-on Case Studies</h4>
+            <ul class="module-topics">
+              <li>Supply Chain & Logistics</li>
+              <li>Revenue Optimization</li>
+              <li>Banking & Financial Services</li>
+              <li>Workforce & Resource Planning</li>
+            </ul>
           </div>
         </div>
         <div class="module">
           <span class="module-num">06</span>
           <div>
-            <h4>Simulation & Queueing Theory</h4>
-            <p>Monte Carlo methods, discrete-event simulation, M/M/1 queues. Arena & Python SimPy.</p>
-          </div>
-        </div>
-        <div class="module">
-          <span class="module-num">07</span>
-          <div>
-            <h4>Dynamic Programming & Markov Decision Processes</h4>
-            <p>Bellman equations, value iteration, policy gradient. Bridge to RL for OR practitioners.</p>
-          </div>
-        </div>
-        <div class="module">
-          <span class="module-num">08</span>
-          <div>
-            <h4>Heuristics, Metaheuristics & Industry Capstone</h4>
-            <p>Genetic algorithms, simulated annealing, tabu search. Capstone project with mentor review.</p>
+            <h4>Solution Development & Deployment</h4>
+            <ul class="module-topics">
+              <li>Model Validation</li>
+              <li>Dashboarding & Visualization</li>
+              <li>Deployment Strategies</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -960,7 +986,7 @@
       <h3>What you'll walk away with</h3>
       <ul class="check-list">
         <li>Deep proficiency in Python-based OR tools: PuLP, OR-Tools, Gurobi, CPLEX</li>
-        <li>A portfolio of 8+ solved industry problems ready to show interviewers</li>
+        <li>A portfolio of solved industry problems ready to show interviewers</li>
         <li>Resume review and LinkedIn optimization for OR roles</li>
         <li>Mock interviews with practicing OR professionals</li>
         <li>Lifetime access to the ORMastery alumni network</li>
@@ -986,78 +1012,36 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials" style="border-top: 1px solid var(--border);">
-  <div class="section-label">Graduate Stories</div>
-  <h2 class="section-title">Professionals who made the leap.</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial">
-      <p class="testimonial-text">"I had 8 years in logistics but zero formal OR background. After ORMastery I landed an optimization engineer role at a Fortune 100 retailer — 40% salary jump."</p>
-      <div class="testimonial-author">
-        <div class="avatar">MR</div>
-        <div><div class="author-name">Marcus R.</div><div class="author-role">Optimization Engineer · Atlanta, GA</div></div>
-      </div>
-    </div>
-    <div class="testimonial">
-      <p class="testimonial-text">"The capstone project directly translated to a portfolio piece that got me three callbacks in a week. The mentorship is unmatched — my mentor is an INFORMS fellow."</p>
-      <div class="testimonial-author">
-        <div class="avatar">SL</div>
-        <div><div class="author-name">Sunita L.</div><div class="author-role">OR Analyst · Chicago, IL</div></div>
-      </div>
-    </div>
-    <div class="testimonial">
-      <p class="testimonial-text">"As a project manager transitioning to data, ORMastery filled the quantitative gap my MBA never did. The LP and MIP modules alone were worth the price."</p>
-      <div class="testimonial-author">
-        <div class="avatar">TW</div>
-        <div><div class="author-name">Trevor W.</div><div class="author-role">Decision Scientist · Austin, TX</div></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- PRICING -->
 <section class="pricing-section" id="pricing">
   <div class="section-label">Pricing</div>
   <h2 class="section-title">Invest in your career, not a university's overhead.</h2>
   <p class="section-sub">Start free. Upgrade when you're ready to go deep.</p>
-  <div class="pricing-grid">
+  <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 420px)); justify-content: center;">
     <div class="pricing-card">
       <div class="pricing-name">Free Explorer</div>
       <div class="pricing-price"><span>$</span>0</div>
       <div class="pricing-period">forever free</div>
       <ul class="pricing-features">
-        <li>1-on-1 interaction with an OR Expert — completely free of cost</li>
+        <li>One free session of 1-on-1 interaction with an OR Trainer</li>
       </ul>
-      <a href="#" class="btn-outline" style="display:block; text-align:center; font-size:0.9rem;" onclick="openModal(); return false;">Get Started Free</a>
+      <a href="#" class="btn-outline" style="display:block; text-align:center; font-size:0.9rem;" onclick="openModal('Free Explorer'); return false;">Get Started Free</a>
     </div>
     <div class="pricing-card featured">
       <div class="featured-badge">Most Popular</div>
       <div class="pricing-name">Professional</div>
-      <div class="pricing-price"><span>$</span>280<span>/wk</span></div>
+      <div class="pricing-price"><span>$</span>240<span>/wk</span></div>
       <div class="pricing-period">billed weekly · cancel anytime</div>
       <ul class="pricing-features">
-        <li>All 8 modules unlocked</li>
-        <li>8 industry project assignments</li>
-        <li>Bi-weekly 1-on-1 mentor sessions</li>
+        <li>All 6 modules unlocked</li>
+        <li>6 industry project assignments</li>
         <li>Resume &amp; LinkedIn review</li>
         <li>Mock interview preparation</li>
         <li>Job board access</li>
         <li>Certificate of Completion</li>
       </ul>
-      <a href="#" class="btn-primary" style="display:block; text-align:center; font-size:0.9rem;" onclick="openModal(); return false;">Enroll Now →</a>
-    </div>
-    <div class="pricing-card">
-      <div class="pricing-name">Corporate Team</div>
-      <div class="pricing-price" style="font-size:2rem;">Custom</div>
-      <div class="pricing-period">5+ seats · volume pricing</div>
-      <ul class="pricing-features">
-        <li>Custom curriculum alignment</li>
-        <li>Dedicated instructor sessions</li>
-        <li>Private cohort &amp; Slack</li>
-        <li>Progress dashboards for managers</li>
-        <li>On-site workshops available</li>
-      </ul>
-      <a href="mailto:teams@ormastery.com" class="btn-outline" style="display:block; text-align:center; font-size:0.9rem;">Contact Us</a>
+      <a href="#" class="btn-primary" style="display:block; text-align:center; font-size:0.9rem;" onclick="openModal('Professional'); return false;">Enroll Now →</a>
     </div>
   </div>
 </section>
@@ -1066,7 +1050,7 @@
 <div class="cta-banner">
   <h2>Your next role is a decision problem. Let's solve it.</h2>
   <p>Join over 1,400 professionals who used ORMastery to break into one of the fastest-growing technical disciplines in the US.</p>
-  <a href="#" class="btn-primary" style="font-size:1rem; padding:1rem 2.5rem;" onclick="openModal(); return false;">Claim Your Free Spot →</a>
+  <a href="#" class="btn-primary" style="font-size:1rem; padding:1rem 2.5rem;" onclick="openModal('Free Explorer'); return false;">Claim Your Free Spot →</a>
 </div>
 
 <!-- FOOTER -->
@@ -1130,10 +1114,21 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  function openModal() {
+  emailjs.init('user_placeholder'); // EmailJS public key placeholder
+
+  let currentPlan = '';
+
+  function openModal(plan) {
+    currentPlan = plan || '';
     document.getElementById('modal').classList.add('open');
     document.body.style.overflow = 'hidden';
+    document.getElementById('modal-form').style.display = '';
+    document.getElementById('modal-success').style.display = 'none';
+    // Update modal heading based on plan
+    const heading = document.querySelector('#modal-form h3');
+    if (heading) heading.textContent = plan === 'Professional' ? 'Enroll Now' : 'Start for Free';
   }
 
   function closeModal() {
@@ -1141,10 +1136,39 @@
     document.body.style.overflow = '';
   }
 
-  function submitForm() {
+  async function submitForm() {
     const name = document.getElementById('fname').value.trim();
     const email = document.getElementById('femail').value.trim();
+    const role = document.getElementById('frole').value;
+    const exp = document.getElementById('fexp').value;
     if (!name || !email) { alert('Please fill in your name and email.'); return; }
+
+    const btn = document.querySelector('#modal-form .btn-primary');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    // Send notification email via EmailJS
+    try {
+      await emailjs.send('service_ormastery', 'template_ormastery', {
+        to_email: 'dharmenydv@gmail.com',
+        plan: currentPlan,
+        user_name: name,
+        user_email: email,
+        user_role: role || 'Not specified',
+        user_exp: exp || 'Not specified',
+        submitted_at: new Date().toLocaleString()
+      });
+    } catch (err) {
+      // Fallback: open mailto if EmailJS not configured
+      const subject = encodeURIComponent(`ORMastery Sign-up: ${currentPlan} — ${name}`);
+      const body = encodeURIComponent(
+        `New sign-up on ORMastery\n\nPlan: ${currentPlan}\nName: ${name}\nEmail: ${email}\nRole: ${role || 'Not specified'}\nExperience: ${exp || 'Not specified'}\nTime: ${new Date().toLocaleString()}`
+      );
+      window.open(`mailto:dharmenydv@gmail.com?subject=${subject}&body=${body}`);
+    }
+
+    btn.textContent = 'Get Free Access →';
+    btn.disabled = false;
     document.getElementById('modal-form').style.display = 'none';
     document.getElementById('modal-success').style.display = 'block';
   }
